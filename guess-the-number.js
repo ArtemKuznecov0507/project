@@ -11,27 +11,26 @@
 "used strict";
 alert('Давай поиграем в игру "Угадай число"!!!');
 
-const randomNumber = Math.floor(Math.random() * 100) + 1;
+const maxAttemptsCount = Math.floor(Math.random() * 100) + 1;
 let gamerAnswer;
 const numberOfAttempts = 5;
-let i = numberOfAttempts;
 
-for (i = 0; i < 5; i++) {
+
+for (let i = 0; i < maxAttemptsCount; i++) {
   gamerAnswer = +prompt(
-    "Попробуй отгадать число, которое я загадал!Введи число От 1 до 100!У тебя 5 попыток!"
+    `Попробуй отгадать число, которое я загадал!Введи число От 1 до 100!У тебя ${numberOfAttempts} попыток!"`
   );
-  if (gamerAnswer == randomNumber) {
+  if (gamerAnswer == maxAttemptsCount) {
     break;
-  } else if (gamerAnswer < randomNumber) {
+  } else if (gamerAnswer < maxAttemptsCount) {
     alert("Ты выбрал слишком маленькое число!Попробуй еще раз!");
-  } else if (gamerAnswer > randomNumber) {
+  } else  {
     alert("Ты выбрал слишком больше число! Попробуй еще раз!");
   }
 }
 
-if (randomNumber !== gamerAnswer) {
+if (maxAttemptsCount !== gamerAnswer) {
   alert("Увы! Попытки закончлись!Вы проиграли...");
-}
-if (randomNumber == gamerAnswer) {
-  alert("Поздравляю, ты МОЛОДЕЦ!");
+} else {
+    alert("Поздравляю, ты МОЛОДЕЦ!");
 }
